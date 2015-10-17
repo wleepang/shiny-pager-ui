@@ -1,3 +1,6 @@
+/**
+ * PagerUI JS object - to keep things DRY
+ */
 PagerUI = function(target, locate, direction) {
   var me = this;
 
@@ -26,6 +29,10 @@ PagerUI = function(target, locate, direction) {
 
   return(me);
 };
+
+/**
+ * Delegated event handlers
+ */
 
 // delegate a click event handler for pager page-number buttons
 $(document).on("click", "button.page-num-button", function(event) {
@@ -242,6 +249,8 @@ $.extend(pageruiInputBinding, {
     return( $(scope).find(".pager-ui") );
   },
   initialize: function(el) {
+    // called when document is ready using initial values defined in ui.R
+    // documented in input_binding.js but not in docs (articles)
     pagerui_render(el);
   },
   // getId: function(el) {},
@@ -256,6 +265,8 @@ $.extend(pageruiInputBinding, {
     $(el).find(".pages-total").val(value.pages_total);
   },
   receiveMessage: function(el, data) {
+    // the docs (articles) don't mention this method ...
+    // documented by comments in input_binding.js code
     if (data.page_current) {
       $(el).find(".page-current")
         .val(data.page_current)
