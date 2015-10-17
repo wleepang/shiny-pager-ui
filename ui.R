@@ -11,7 +11,7 @@ source('pagerui.R')
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("Pager UI Widget"),
+  titlePanel("Pager UI Widget Demo"),
 
   fluidRow(
     column(
