@@ -16,25 +16,19 @@ shinyUI(fluidPage(
   fluidRow(
     column(
       width = 2,
-      numericInput('num_page_current', 'Set Current Page', value = 1, min = 1)
+      selectInput('sel_dataset', 'Dataset', choices = c('mtcars', 'iris', 'airquality')),
+      numericInput('num_rows_per_page', 'Rows Per Page', value = 10, min = 1),
+      numericInput('num_page_delay', 'Paging Delay (s)', value = 0, min = 0),
+      helpText('Simulates paging with a processing delay - e.g. plotting'),
+      hr(),
+      verbatimTextOutput('debug'),
+      helpText('The data stored in the pager-ui input.')
     ),
     column(
-      width = 2,
-      numericInput('num_pages_total', 'Set Total Pages', value = 0, min = 0)
-    ),
-    column(
-      width = 1,
-      actionButton('btn_update', 'Update')
-    )
-  ),
-
-  fluidRow(
-    column(
-      width = 12,
+      width = 10,
+      pageruiInput('pager', 1, 1),
       hr(),
-      pageruiInput('pager', 1, 50),
-      hr(),
-      verbatimTextOutput('debug')
+      tableOutput('table')
     )
   )
 
