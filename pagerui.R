@@ -1,3 +1,11 @@
+#' Create a pager-ui Input control
+#'
+#' @param inputId The \code{input} slot that will be used to access the value
+#' @param page_current The currently selected page
+#' @param total_pages The total number of pages available
+#'
+#' @seealso
+#' \link{updatePageruiInput}
 pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
   # construct the pager-ui framework
   tagList(
@@ -70,6 +78,16 @@ pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
     )
   )
 }
+
+#' Change the value of a pager-ui input on the client
+#'
+#' @param session The \code{session} object passed to function given to \code{shinyServer}
+#' @param inputId The id of the input object
+#' @param page_current Current page value
+#' @param pages_total Total pages value
+#'
+#' @seealso
+#' \link{pageruiInput}
 updatePageruiInput = function(session, inputId, page_current = NULL, pages_total = NULL) {
   message = shiny:::dropNulls(list(
     page_current = shiny:::formatNoSci(page_current),

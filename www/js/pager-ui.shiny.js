@@ -1,7 +1,19 @@
 (function() {  // IIF closure ...
 
 /**
- * PagerUI JS object - to keep things DRY
+ * PagerUI JS object constructor
+ *
+ * @param target - selector string or jQuery object representation of pager-ui
+ *    container node
+ * @param {boolean} [locate] - flag to search for pager-ui container node.  Use
+ *    only if target is not a DOM element with class "pager-ui"
+ * @param {string} [direction] - direction to search for pager-ui container node
+ *    if locate = true.  Options are "parent" (default) or "child".
+ *
+ * @returns {Object} A PagerUI object with properties:
+ *  - root: the jQuery object for the pager-ui container
+ *  - page_current: the jQuery object for the child input.page-current field
+ *  - pages_total: the jQuery object for the chile input.pages-total field
  */
 PagerUI = function(target, locate, direction) {
   var me = this;
@@ -102,6 +114,7 @@ $(document).on("change", "input.page-current", function(event) {
  *
  * Requires Underscore.js
  *
+ * @returns Nothing
  */
 pagerui_render = function(target, page_current, pages_total) {
   var $target = $(target);
