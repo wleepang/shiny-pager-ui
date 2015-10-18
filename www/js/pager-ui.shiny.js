@@ -1,3 +1,5 @@
+(function() {  // IIF closure ...
+
 /**
  * PagerUI JS object - to keep things DRY
  */
@@ -297,3 +299,5 @@ $.extend(pageruiInputBinding, {
 
 Shiny.inputBindings
   .register(pageruiInputBinding, "oddhypothesis.pageruiInputBinding");
+
+}()); // End IIF Closure
