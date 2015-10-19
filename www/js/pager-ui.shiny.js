@@ -280,8 +280,9 @@ $.extend(pageruiInputBinding, {
     $(el).find(".pages-total").val(value.pages_total);
   },
   receiveMessage: function(el, data) {
-    // the docs (articles) don't mention this method ...
-    // documented by comments in input_binding.js code
+    // This is used for receiving messages that tell the input object to do
+    // things, such as setting values (including min, max, and others).
+    // documented in input_binding.js but not in docs (articles)
     if (data.page_current) {
       $(el).find(".page-current")
         .val(data.page_current)
