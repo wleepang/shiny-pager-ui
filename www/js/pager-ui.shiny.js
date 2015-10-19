@@ -52,7 +52,7 @@ PagerUI = function(target, locate, direction) {
 $(document).on("click", "button.page-num-button", function(event) {
   var $btn = $(event.target);
   var page_num = $btn.data("page-num");
-  var $pager = PagerUI($btn, true);
+  var $pager = new PagerUI($btn, true);
 
   $pager.page_current
     .val(page_num)
@@ -61,7 +61,7 @@ $(document).on("click", "button.page-num-button", function(event) {
 });
 
 $(document).on("click", "button.page-prev-button", function(event) {
-  var $pager = PagerUI(event.target, true);
+  var $pager = new PagerUI(event.target, true);
 
   var page_current = parseInt($pager.page_current.val());
 
@@ -74,7 +74,7 @@ $(document).on("click", "button.page-prev-button", function(event) {
 });
 
 $(document).on("click", "button.page-next-button", function(event) {
-  var $pager = PagerUI(event.target, true);
+  var $pager = new PagerUI(event.target, true);
 
   var page_current = parseInt($pager.page_current.val());
   var pages_total = parseInt($pager.pages_total.val());
@@ -89,13 +89,13 @@ $(document).on("click", "button.page-next-button", function(event) {
 
 // delegate a change event handler for pages-total to draw the page buttons
 $(document).on("change", "input.pages-total", function(event) {
-  var $pager = PagerUI(event.target, true);
+  var $pager = new PagerUI(event.target, true);
   pagerui_render($pager.root);
 });
 
 // delegate a change event handler for page-current to draw the page buttons
 $(document).on("change", "input.page-current", function(event) {
-  var $pager = PagerUI(event.target, true);
+  var $pager = new PagerUI(event.target, true);
   pagerui_render($pager.root);
 });
 
