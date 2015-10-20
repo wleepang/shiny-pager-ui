@@ -12,7 +12,6 @@ pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
     singleton(
       tags$head(
         tags$script(src = 'js/underscore-min.js'),
-        # tags$script(HTML(js))
         tags$script(src = 'js/pager-ui.shiny.js')
       )
     ),
@@ -22,10 +21,11 @@ pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
       id = inputId,
       class = 'pager-ui',
 
-      # reactive numeric input to store current page
-      # access it as input[['{{inputId}}__page_current']]
-      span(
-        class = 'hidden shiny-input-container',
+      # container for hidden numeric fields
+      div(
+        class = 'hidden',
+
+        # numeric input to store current page
         tags$input(
           id = paste(inputId, 'page_current', sep='__'),
           class = 'page-current',
@@ -33,13 +33,9 @@ pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
           value = ifelse(!is.null(page_current), page_current, 1),
           min = 1,
           max = ifelse(!is.null(pages_total), pages_total, 1)
-        )
-      ),
+        ),
 
-      # reactive numeric input to store total pages
-      # access it as input[['{{inputId}}__pages_total']]
-      span(
-        class = 'hidden shiny-input-container',
+        # numeric input to store total pages
         tags$input(
           id = paste(inputId, 'pages_total', sep='__'),
           class = 'pages-total',
