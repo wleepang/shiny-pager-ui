@@ -10,6 +10,10 @@ A generic pager widget for R/Shiny based applications.
 * R functions `pageruiInput()` (for `ui.R`) and `updatePageruiInput()` (for
   `server.R`) make it simple to use in any Shiny application
 
+## Application
+Provide paging abilities to data sets that require more processing / rendering 
+than a table.
+
 ## Run the demo
 If not already done, install the `shiny` R-package from CRAN:
 
