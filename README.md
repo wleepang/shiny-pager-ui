@@ -2,6 +2,8 @@ Pager UI
 ========
 A generic pager widget for R/Shiny based applications.
 
+![pager-ui widget](pager-ui_widget_screenshot.png)
+
 ## Features
 * Prev / Next buttons
 * Dynamically rendered page number buttons
