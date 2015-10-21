@@ -12,7 +12,7 @@ pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
     singleton(
       tags$head(
         tags$script(src = 'js/underscore-min.js'),
-        tags$script(src = 'js/pager-ui.shiny.js')
+        tags$script(src = 'js/input_binding_pager-ui.js')
       )
     ),
 
