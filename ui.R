@@ -6,7 +6,6 @@
 #
 
 library(shiny)
-source('pagerui.R')
 
 shinyUI(fluidPage(
 
