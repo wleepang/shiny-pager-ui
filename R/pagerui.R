@@ -6,6 +6,11 @@
 #'
 #' @seealso
 #' \link{updatePageruiInput}
+#' 
+#' @import shiny
+#' @import htmltools
+#' 
+#' @export
 pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
   # construct the pager-ui framework
   tagList(
@@ -69,7 +74,22 @@ pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
         # dynamically generated via javascript
         span(
           class = 'page-button-group-numbers btn-group'
+        ),
+        
+        # javascript assets
+        htmlDependency(
+          name = paste(packageName(), 'assets', sep = '-'),
+          version = packageVersion(packageName()),
+          package = packageName(),
+          src = 'assets',
+          script = c(
+            'js/input_binding_pager-ui.js',
+            'js/underscore-min.js',
+            'js/underscore-min.map'
+          )
         )
+        
+        ##
       )
     )
   )
@@ -84,6 +104,9 @@ pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
 #'
 #' @seealso
 #' \link{pageruiInput}
+#' 
+#' @import shiny
+#' @export
 updatePageruiInput = function(session, inputId, page_current = NULL, pages_total = NULL) {
   message = shiny:::dropNulls(list(
     page_current = shiny:::formatNoSci(page_current),
@@ -91,4 +114,18 @@ updatePageruiInput = function(session, inputId, page_current = NULL, pages_total
   ))
 
   session$sendInputMessage(inputId, message)
+}
+
+#' Runs example application for shinyPagerUI
+#' 
+#' @importFrom shiny runApp
+#' @export
+runExamplePagerUI = function() {
+  app_dir = system.file('example_app', package = packageName())
+  
+  if (is.na(app_dir) || app_dir == '') {
+    stop("Could not find example. Try re-installing package.", call. = FALSE)
+  }
+  
+  runApp(app_dir, display.mode = 'normal')
 }

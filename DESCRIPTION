@@ -1,0 +1,11 @@
+Package: shinyPagerUI
+Title: A generic pager widget for R/Shiny based applications
+Version: 0.2.0
+Encoding: UTF-8
+Author: W. Lee Pang
+Maintainer: W. Lee Pang  <wleepang@gmail.com>
+License: Apache 2
+Depends:
+    shiny
+Description: Provide paging abilities to data sets that require more processing / rendering than a table.
+RoxygenNote: 6.1.1
