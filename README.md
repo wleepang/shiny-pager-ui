@@ -1,10 +1,12 @@
 Pager UI
 ========
+
 A generic pager widget for R/Shiny based applications.
 
 ![pager-ui widget](pager-ui_widget_screenshot.png)
 
 ## Features
+
 * Prev / Next buttons
 * Dynamically rendered page number buttons
     * displays all if &leq; 10 pages
@@ -13,37 +15,54 @@ A generic pager widget for R/Shiny based applications.
   `server.R`) make it simple to use in any Shiny application
 
 ## Application
+
 Provide paging abilities to data sets that require more processing / rendering 
 than a table.
 
-## Run the demo
-If not already done, install the `shiny` R-package from CRAN:
+## Installation
+
+If you don't have the `devtools` package, install it:
 
 ```r
-install.packages('shiny')
+install.packages('devtools')
 ```
 
-Clone this git repository, navigate to the directory where `ui.R` and `server.R`
-are located and run:
+This allows you to install packages directly from GitHub.
+Install this package:
 
 ```r
-shiny::runApp()
+devtools::install_github('wleepang/shiny-pager-ui')
+```
+
+## Run the demo
+
+Run the following to see the widget in action:
+
+```r
+library(shinyPagerUI)
+runExamplePagerUI()
+```
+
+The source for the example application is in:
+
+```
+inst/example_app
 ```
 
 ## Use the widget
-1. Copy the folder `www/js` to your app.
-2. Copy `pagerui.R` to your app.
-3. In the `global.R` file (create it if it doesn't exist) add the line:
+
+1. In the `global.R` file (create it if it doesn't exist) add the line:
 
 ```r
-source('pagerui.R')
+library(shinyPagerUI)
 ```
 
-4. In `ui.R` add the widget as needed using `pageruiInput()`.
-5. In `server.R` use `updatePageruiInput()` in reactive contexts that need to 
+2. In `ui.R` add the widget as needed using `pageruiInput()`.
+3. In `server.R` use `updatePageruiInput()` in reactive contexts that need to 
    update the widget.
 
 ## Examples
+
 In `ui.R`:
 * add a pager with id `pager`:
 
