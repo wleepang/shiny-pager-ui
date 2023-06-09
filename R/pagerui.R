@@ -21,7 +21,7 @@ pageruiInput = function(inputId, page_current = NULL, pages_total = NULL) {
 
       # container for hidden numeric fields
       div(
-        class = 'hidden',
+        class = 'invisible',
 
         # numeric input to store current page
         tags$input(
